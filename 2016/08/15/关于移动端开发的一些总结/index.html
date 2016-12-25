@@ -1,0 +1,730 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mobile,webApp," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="在日常的移动端的前端开发过程中的学习和实践的总结。移动端的开发与pc端有什么不同，需要注意些什么，布局方案的选择，特殊样式的处理，以及交互优化的方式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于移动端开发的一些总结">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/关于移动端开发的一些总结/index.html">
+<meta property="og:site_name" content="Silence的个人博客">
+<meta property="og:description" content="在日常的移动端的前端开发过程中的学习和实践的总结。移动端的开发与pc端有什么不同，需要注意些什么，布局方案的选择，特殊样式的处理，以及交互优化的方式。">
+<meta property="og:updated_time" content="2016-08-16T15:42:14.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于移动端开发的一些总结">
+<meta name="twitter:description" content="在日常的移动端的前端开发过程中的学习和实践的总结。移动端的开发与pc端有什么不同，需要注意些什么，布局方案的选择，特殊样式的处理，以及交互优化的方式。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/15/关于移动端开发的一些总结/"/>
+
+
+  <title> 关于移动端开发的一些总结 | Silence的个人博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ce4d176f87596bac8929806f1f4f16d1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Silence的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">专注于前端</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于移动端开发的一些总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T22:33:25+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/移动端，web-app/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端，web app</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/关于移动端开发的一些总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/关于移动端开发的一些总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1、-piexl-像素知识"><a href="#1、-piexl-像素知识" class="headerlink" title="1、    piexl 像素知识"></a>1、    piexl 像素知识</h2><p><strong>640 * 1136的图片能不能在iphone5上完全展示？</strong><br>iphone5分辨率640*1136</p>
+<p><strong>逻辑像素与物理像素的关系</strong><br>px逻辑像素：浏览器使用的抽象单位<br>dp，pt物理像素：设备无关像素<br>dpr：设备像素缩放比<br>计算公式：1px = (dpr)^2 * dp<br>iphone5的 dpr = 2；</p>
+<p>DPI:打印机每英寸可以喷的墨汁点（印刷行业）<br>PPI:屏幕每英寸的像素数量，即单位英寸内的像素密度<br>目前，在计算机显示设备参数描述上，二者意思一致<br>计算公式：以iphone5为例：ppi = √（1136^2 + 640^2）/4 = 326ppi（视网膜retina屏）<br>注意：单位为硬件像素（物理像素），非px<br>PPI越高，像素数越高，图像越清晰。但可视度月低（小），系统默认缩放比越大。<br>retina屏（高清屏）：dpr都是&gt;=2。</p>
+<h2 id="2、-viewport"><a href="#2、-viewport" class="headerlink" title="2、    viewport"></a>2、    viewport</h2><p><strong>手机浏览器默认为我们做了两件事情：</strong><br>①    页面渲染在一个980px（ios）的viewport<br>②    缩放</p>
+<p><strong>为什么要有viewport？</strong><br>一个300多像素的屏幕，放一个1000多像素的页面，会混乱，所以要先虚拟一个980像素的页面，然后进行缩放。</p>
+<p>度量|视口  visual  viewport  ====    窗口缩放scale<br>布局   layout  viewport</p>
+<p><strong>设计移动web，为什么不使用默认的980px的布局viewport？</strong><br>①    宽度不可控制，不同系统的设备默认值都可能不同<br>②    页面缩小版显示，交互不友好<br>③    链接不可点<br>④    有缩放，缩放后又有滚动<br>font-size为40px等于pc上12px同等物理大小，不规范</p>
+<h2 id="3、-meta标签"><a href="#3、-meta标签" class="headerlink" title="3、    meta标签"></a>3、    meta标签</h2><p>移动web最佳viewport设置： 布局viewport = 设备宽度 = 度量viewport</p>
+<meta name="”" viewport”="" content="“width=device-width," initial-scale="1," user-scalable="no”">
+
+
+<h2 id="4、-设计移动web"><a href="#4、-设计移动web" class="headerlink" title="4、    设计移动web"></a>4、    设计移动web</h2><h4 id="方案一：根据设备的实际宽度来设计（常用）（不缩放）"><a href="#方案一：根据设备的实际宽度来设计（常用）（不缩放）" class="headerlink" title="方案一：根据设备的实际宽度来设计（常用）（不缩放）"></a>方案一：根据设备的实际宽度来设计（常用）（不缩放）</h4><p>手机宽320px，我们就拿320px设计。</p>
+<h4 id="方案二：1px-1dp，易解决高清问题"><a href="#方案二：1px-1dp，易解决高清问题" class="headerlink" title="方案二：1px = 1dp，易解决高清问题"></a>方案二：1px = 1dp，易解决高清问题</h4><p>缩放0.5。根据设备的物理像素dp等于抽象像素px来设计。1px像素边框和高清图片都不需要额外处理。</p>
+<h5 id="以方案一为例，将pc端页面改成适应移动端的页面："><a href="#以方案一为例，将pc端页面改成适应移动端的页面：" class="headerlink" title="以方案一为例，将pc端页面改成适应移动端的页面："></a>以方案一为例，将pc端页面改成适应移动端的页面：</h5><p>在移动开发过程中要学会做减法，一些不太重要的东西可以隐藏起来。</p>
+<h2 id="5、-使用什么布局？"><a href="#5、-使用什么布局？" class="headerlink" title="5、    使用什么布局？"></a>5、    使用什么布局？</h2><p>很多网站都是使用固定布局，以前凡客、淘宝也有段时间使用过流式布局，现在都改成固定布局。<br>但是固定布局不适合移动开发。</p>
+<h4 id="可以使用"><a href="#可以使用" class="headerlink" title="可以使用"></a>可以使用</h4><p>①    响应式布局：responsive  高清图片  retina  px  em  rem<br>②    flex弹性盒子布局：高效居中方案  等比例填充列行  background-size  font-size  多行文本溢出</p>
+<h2 id="6、-flexbox弹性盒子布局"><a href="#6、-flexbox弹性盒子布局" class="headerlink" title="6、    flexbox弹性盒子布局"></a>6、    flexbox弹性盒子布局</h2><p>根据元素个数不同，自动填充<br>display:-webkit-flex; 表示使用弹性布局<br>子元素设置 flex:num; 占容器的比例</p>
+<h3 id="划分方式："><a href="#划分方式：" class="headerlink" title="划分方式："></a>划分方式：</h3><h4 id="①-等比划分（flex-num-表示）"><a href="#①-等比划分（flex-num-表示）" class="headerlink" title="①    等比划分（flex:num;表示）"></a>①    等比划分（flex:num;表示）</h4><h4 id="②-混合划分（有固定的像素（eg：100px）与flex-num-混合在一起）"><a href="#②-混合划分（有固定的像素（eg：100px）与flex-num-混合在一起）" class="headerlink" title="②    混合划分（有固定的像素（eg：100px）与flex:num;混合在一起）"></a>②    混合划分（有固定的像素（eg：100px）与flex:num;混合在一起）</h4><h4 id="③-不定宽高的水平垂直居中："><a href="#③-不定宽高的水平垂直居中：" class="headerlink" title="③    不定宽高的水平垂直居中："></a>③    不定宽高的水平垂直居中：</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">position</span>：<span class="selector-tag">absolute</span>；</div><div class="line"><span class="selector-tag">top</span>：50%；</div><div class="line"><span class="selector-tag">left</span>：50%；</div><div class="line"><span class="selector-tag">transform</span>：<span class="selector-tag">translate</span>（<span class="selector-tag">-50</span>%，<span class="selector-tag">-50</span>%）；</div></pre></td></tr></table></figure>
+<h4 id="flexbox版不定宽高的水平垂直居中："><a href="#flexbox版不定宽高的水平垂直居中：" class="headerlink" title="flexbox版不定宽高的水平垂直居中："></a>flexbox版不定宽高的水平垂直居中：</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">		justify-content :  center;		//子元素水平居中</div><div class="line">		align-items :  center;			//子元素垂直居中</div><div class="line">		display :  -webkit-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="flexbox弹性盒子布局，介于兼容性问题，建议使用旧版方案："><a href="#flexbox弹性盒子布局，介于兼容性问题，建议使用旧版方案：" class="headerlink" title="flexbox弹性盒子布局，介于兼容性问题，建议使用旧版方案："></a>flexbox弹性盒子布局，介于兼容性问题，建议使用旧版方案：</h4><p> ①新flex布局：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">display :  -webkit-flex;</div><div class="line">-webkit-fiex:  1;		//子元素的flex</div><div class="line">justify-content :  center;</div><div class="line">align-items :  center;</div></pre></td></tr></table></figure>
+<p>②旧flexbox布局：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">display :  -webkit-flex-box;</div><div class="line">-webkit-fiex-box:  1; 		//子元素的flex</div><div class="line">box-pack :  center;</div><div class="line">box-center:  center;</div></pre></td></tr></table></figure>
+<h5 id="一种垂直居中的hack："><a href="#一种垂直居中的hack：" class="headerlink" title="一种垂直居中的hack："></a>一种垂直居中的hack：</h5><p>（1）hack方式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">568px</span>;</div><div class="line">	<span class="attribute">vertical-align</span>:middle;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">li</span> <span class="selector-tag">img</span>&#123;</div><div class="line">	<span class="attribute">vertical-align</span>:middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(2)更优雅的方式，对于高级浏览器来说</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 父元素</div><div class="line">position:absolute;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 子元素</div><div class="line">li&#123;</div><div class="line">	display: table-cell;/*盒模型变成表格的元素*/</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(3)另一种垂直居中方式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">	<span class="attribute">display</span>: -webkit-box;</div><div class="line">	<span class="attribute">-webkit-box-pack</span>:center;</div><div class="line">	<span class="attribute">-webkit-box-align</span>:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="7、-响应式布局"><a href="#7、-响应式布局" class="headerlink" title="7、    响应式布局"></a>7、    响应式布局</h2><p>开发一个页面，在所有的设备上都能够完美展示。</p>
+<h5 id="媒体查询：-media-screen-and-max-width-100px"><a href="#媒体查询：-media-screen-and-max-width-100px" class="headerlink" title="媒体查询：@media  screen  and  (max-width:100px) {  }"></a>媒体查询：@media  screen  and  (max-width:100px) {  }</h5><h5 id="媒体类型：screen（屏幕）"><a href="#媒体类型：screen（屏幕）" class="headerlink" title="媒体类型：screen（屏幕）"></a>媒体类型：screen（屏幕）</h5><p>   print（打印机）<br>   handheld（手持设备）<br>   all（通用）</p>
+<h5 id="常用媒体查询参数："><a href="#常用媒体查询参数：" class="headerlink" title="常用媒体查询参数："></a>常用媒体查询参数：</h5><p>   width —— 视口宽高<br>   height —— 视口宽高<br>   device-width —— 设备的宽高<br>   device- height —— 设备的宽高<br>   orientation：检查设备处于横向（landscape）还是竖屏（portrait）</p>
+<h3 id="响应式设计设计点"><a href="#响应式设计设计点" class="headerlink" title="响应式设计设计点"></a>响应式设计设计点</h3><h4 id="设计点一：百分比布局"><a href="#设计点一：百分比布局" class="headerlink" title="设计点一：百分比布局"></a>设计点一：百分比布局</h4><p>   仅仅使用媒体查询来适应不同固定宽度设计，只会从一组css到另一组css的切换。两种设计之间没有任何平滑渐变。只使用媒体查询，布局有时会变得不可控制。<br>   当然，这只是建议，也有一些页面采用固定布局的情况下能够很好的在一些没有考虑过媒体查询情况下的设备上很好的展示。</p>
+<h4 id="设计点二：弹性图片"><a href="#设计点二：弹性图片" class="headerlink" title="设计点二：弹性图片"></a>设计点二：弹性图片</h4><p>   思路：无论何时，全都包在图片的元素宽度范围内，以最大的宽度同比完整的显示图片。<br>img{ max-height: 100% }</p>
+<h4 id="设计点三：重新布局，显示与隐藏"><a href="#设计点三：重新布局，显示与隐藏" class="headerlink" title="设计点三：重新布局，显示与隐藏"></a>设计点三：重新布局，显示与隐藏</h4><p>   当页面达到手机屏幕宽度的时候，很多时候就要放弃一些传统的页面设计思想。力求页面简单，做如下处理：<br>①    同比例缩减元素尺寸<br>②    调整页面结构布局<br>③    隐藏冗余的元素<br>经常需要切换位置元素使用【绝对定位】，减少重绘提高渲染性能。</p>
+<h4 id="关于响应式设计的思考："><a href="#关于响应式设计的思考：" class="headerlink" title="关于响应式设计的思考："></a>关于响应式设计的思考：</h4><p>   根据响应式设计的理念，一个页面包含所有设备不同屏幕的样式和图片，当一个移动设备访问一个响应式的页面，就会下载pc，笔记本，ipad等不同设备对应的样式。而这些样式却是冗余的，完全没有用。<br>权衡利弊：性能不是最优，但是能减少重复开发。</p>
+<h2 id="8、-特殊样式处理"><a href="#8、-特殊样式处理" class="headerlink" title="8、    特殊样式处理"></a>8、    特殊样式处理</h2><h4 id="（1）-高清图片"><a href="#（1）-高清图片" class="headerlink" title="（1）    高清图片"></a>（1）    高清图片</h4><p>   在移动web页面上渲染图片，为了避免图片产生模糊，图片的宽度应该用物理像素单位渲染，即是100 <em> 100的图片，应该使用100dp </em> 10dp。<br>   width：（w_value/dpr）px；<br>   height：（w_height/dpr）px；</p>
+<h4 id="（2）-一像素边框"><a href="#（2）-一像素边框" class="headerlink" title="（2）    一像素边框"></a>（2）    一像素边框</h4><p>   同样是retina屏幕下的问题，根本原因：1px使用2dp渲染。<br>   border：0.5px；（错误），仅仅ios8可以使用<br>   通用方案：scaleY（0.5）</p>
+<h4 id="（3）-相对单位rem"><a href="#（3）-相对单位rem" class="headerlink" title="（3）    相对单位rem"></a>（3）    相对单位rem</h4><p>   为了适应各大屏幕的手机，px略显固定，不能根据尺寸的大小而改变，使用相对单位更能体验页面兼容性。<br>    em：是根据父节点的font-size为相对单位<br>    rem：是根据html的font-size为相对单位<br>    em在多层嵌套下，变得非常难以维护，rem更加能作为全局统一设置的度量<br>那么，rem的基值设置为多少比较好？<br>    回归目的：为了适应各大手机屏幕<br>    rem = screen.width / 20</p>
+<h5 id="不使用rem的情况：font-size"><a href="#不使用rem的情况：font-size" class="headerlink" title="不使用rem的情况：font-size"></a>不使用rem的情况：font-size</h5><p>   一般来讲font-size是不应该使用rem的相对单位的。因为字体的大小是趋向于阅读的实用性，并不适合于排版布局。<br>    同理，趋向于一些固定的元素的特性。我们不使用rem而改为使用px去确保在不同屏幕上表现一致（跟rem的目的相反）。</p>
+<h4 id="（4）-多行文本溢出•••"><a href="#（4）-多行文本溢出•••" class="headerlink" title="（4）    多行文本溢出•••"></a>（4）    多行文本溢出•••</h4><p>   单行文本溢出，对title类的使用非常多，而多行文本类，在详情介绍则用的比较多。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//单行文本溢出…</div><div class="line">.inaline &#123;</div><div class="line">	overflow: hidden;</div><div class="line">	white-space: nowrap;</div><div class="line">	text-overflow: ellipsis;</div><div class="line">&#125;</div><div class="line">//多行文本溢出…</div><div class="line">.intwoline &#123;</div><div class="line">	display: -webkit-box: !important;</div><div class="line">	overflow: hidden;</div><div class="line"></div><div class="line">	text-overflow: ellipsis;</div><div class="line">	word-break: break-all;</div><div class="line"></div><div class="line">	-webkit-box-orient: vertical;</div><div class="line">-webkit-line-clamp: 4;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="9、-终端交互优化"><a href="#9、-终端交互优化" class="headerlink" title="9、    终端交互优化"></a>9、    终端交互优化</h2><h4 id="对click事件say-no"><a href="#对click事件say-no" class="headerlink" title="对click事件say  no"></a>对click事件say  no</h4><h4 id="弹性滚动"><a href="#弹性滚动" class="headerlink" title="弹性滚动"></a>弹性滚动</h4><h4 id="上拉刷新"><a href="#上拉刷新" class="headerlink" title="上拉刷新"></a>上拉刷新</h4><h4 id="tap事件基础"><a href="#tap事件基础" class="headerlink" title="tap事件基础"></a>tap事件基础</h4><h4 id="touch触摸事件"><a href="#touch触摸事件" class="headerlink" title="touch触摸事件"></a>touch触摸事件</h4><h4 id="下拉加载"><a href="#下拉加载" class="headerlink" title="下拉加载"></a>下拉加载</h4><h4 id="300ms"><a href="#300ms" class="headerlink" title="300ms:"></a>300ms:</h4><p>   移动web页面上的click事件响应都要慢上300ms<br>   用300ms判断是单击还是双击</p>
+<h4 id="1-tap基础事件"><a href="#1-tap基础事件" class="headerlink" title="(1)    tap基础事件"></a>(1)    tap基础事件</h4><p>   300ms延迟怎么破？tap事件代替click事件。<strong>自定义tao事件原理：</strong><br>   在touchstart、touchend的记录时间、手指位置，在touchend时进行比较，如果手指位置为同一位置(或允许移动一个非常小的位移值)且时间间隔较短（一般认为是200ms），且过程中未曾触发过touchmove，即可认为触发了手持设备上的“click”，一般称它为“tap”。</p>
+<p><strong>tap“点透”的bug：</strong> 有两层，点击第一层的时候，如果点击的区域在第二层的范围内，那么第二层也会被触发。（原因与300ms有关）</p>
+<p><strong>tap透传的解决方案：</strong><br>①使用缓存动画，过渡300ms的延迟<br>②中间层dom元素的加入，让中间层接收这个“穿透”事件，稍后隐藏<br>③“上下”都使用tap事件，原理上解决tap穿透事件，（但是不可避免原生标签的click事件，如a，input）。<br>③    改用Fastclick的库（听过最新的zepto已经fixed掉这个bug）</p>
+<h4 id="2-Touch基础事件"><a href="#2-Touch基础事件" class="headerlink" title="(2)    Touch基础事件"></a>(2)    Touch基础事件</h4><p>触摸才是移动设备的交互的核心事件，支持多点触摸。<br>touchstart：手指触摸屏幕触发（已经有手指放屏幕上不会出发）<br>touchmove：手指在屏幕上滑动，连续触发<br>touchend：手指离开屏幕时触发<br>touchcancel：系统取消touch时候触发（不常用）eg：滑动页面时来了一个电话或者其他系统事件</p>
+<p><strong>除常见的事件属性外，触摸事件包含专有的触摸属性：</strong><br>    touches：跟踪触摸操作的touch对象数组<br>    targetTouches：特定事件目标的touch对象数组<br>    changeTouches：上次触摸改变的touch对象数组</p>
+<p><strong>一个小BUG：</strong> android只会触发一次touchstart，一次touchmove，touchend不触发。（4.0，4.1有，4.2修复没有了，4.4开始又出现了）</p>
+<p><strong>解决方案：</strong> 在touchmove中加入：event.preventDefault（），可fixedBug。</p>
+<h5 id="但注意：event-preventDefault（）会导致默认行为不发生，如scroll，导致页面不滚动！如果页面带有滚动条，就需要考虑更换解决方案。"><a href="#但注意：event-preventDefault（）会导致默认行为不发生，如scroll，导致页面不滚动！如果页面带有滚动条，就需要考虑更换解决方案。" class="headerlink" title="但注意：event.preventDefault（）会导致默认行为不发生，如scroll，导致页面不滚动！如果页面带有滚动条，就需要考虑更换解决方案。"></a>但注意：event.preventDefault（）会导致默认行为不发生，如scroll，导致页面不滚动！如果页面带有滚动条，就需要考虑更换解决方案。</h5><h4 id="3-弹性滚动，下拉刷新"><a href="#3-弹性滚动，下拉刷新" class="headerlink" title="(3)    弹性滚动，下拉刷新"></a>(3)    弹性滚动，下拉刷新</h4><p> ①弹性滚动：当客户端的页面滚动到顶部或底部的时候，滚动条会收缩并让我们多滑动一定距离。通过缓冲反弹的效果，带给用户良好的体验。<br>移动web页面也是拥有这样的能力的，但滚动有几种情况需要考虑：<br>body层滚动：（系统特殊化处理）<br>自带弹性滚动，overflow：hidden失效，GIF和定时器暂停。<br>局部滚动：没有弹性滚动，没有滚动惯性，不流畅。<br>局部滚动开启弹性滚动：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">overflow</span>:scroll;</div><div class="line">	<span class="attribute">-webkit-overflow-scrolling</span>:touch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="但注意：android不支持原生的弹性滚动！但可以借助三方库iScroll来实现"><a href="#但注意：android不支持原生的弹性滚动！但可以借助三方库iScroll来实现" class="headerlink" title="但注意：android不支持原生的弹性滚动！但可以借助三方库iScroll来实现"></a>但注意：android不支持原生的弹性滚动！但可以借助三方库iScroll来实现</h5><p>②下拉刷新：顶端下拉一小点距离，页面弹性滚动向下。<br>④    上拉加载：使用scroll事件，而不是touch事件（android有bug）</p>
+<h4 id="4-Canvas-amp-GPU-render【GPU-渲染】"><a href="#4-Canvas-amp-GPU-render【GPU-渲染】" class="headerlink" title="(4)    Canvas &amp; GPU render【GPU 渲染】"></a>(4)    Canvas &amp; GPU render【GPU 渲染】</h4><p><strong>优化技巧：</strong> canvas代替img标签<br>drawImage（image，x，y）；canvas上绘制图片<br>drawImage（image，x，y，width，height）；canvas上绘制缩放图片</p>
+<p><strong>原因：</strong> img使用浏览器渲染，当图片特别大且手机性能不是很好的情况下，会特别卡，通常表现在滑动图片。因为没有触发物理设备本身的GPU（图形处理器）渲染</p>
+<h5 id="image-object："><a href="#image-object：" class="headerlink" title="image object："></a>image object：</h5><p>①    预加载图片：当设置img.src=””的时候，就表示请求加载图片<br>②    图片的按比例缩放</p>
+<h4 id="5-css3-animation"><a href="#5-css3-animation" class="headerlink" title="(5)    css3  animation"></a>(5)    css3  animation</h4><p>当一个css3动画结束时，我们可以监听相关事件AnimationEnd，比如对于webkit来说，是webkitAnimationEnd。</p>
+<h2 id="10、-跨终端web"><a href="#10、-跨终端web" class="headerlink" title="10、    跨终端web"></a>10、    跨终端web</h2><p>①    单域 - Media Query<br>②    单域 – 多模板<br>③    多域 – 跳转（很原始）<br>④    多平台 App</p>
+<h4 id="（1）-移动优先："><a href="#（1）-移动优先：" class="headerlink" title="（1）    移动优先："></a>（1）    移动优先：</h4><p>①    移动端的用户和流量越来越多<br>②    各种屏幕让我们更聚焦业务的本领<br>③    移动设备有更先进的人机交互体验</p>
+<h4 id="（2）-多终端检测"><a href="#（2）-多终端检测" class="headerlink" title="（2）    多终端检测"></a>（2）    多终端检测</h4><h4 id="（3）-接口：结构：通用接口，"><a href="#（3）-接口：结构：通用接口，" class="headerlink" title="（3）    接口：结构：通用接口，"></a>（3）    接口：结构：通用接口，</h4><p>接口模型：前端消费者；后端生产者；测试监督者</p>
+<h2 id="11、零碎的细节"><a href="#11、零碎的细节" class="headerlink" title="11、零碎的细节"></a>11、零碎的细节</h2><p>1）CSS3动画，代替DOM  animation，效率更高，因为css3直接使用浏览器的GPU（图形处理器）渲染</p>
+<p>2）    当你给一个元素设置它的百分比宽度的时候，他需要一个比照，也就是父元素，但是当它没有父的时候，需要给他一个绝对定位absolute值，但是在移动开发中，给整个整块的页面使用position: absolute;很占用内存，特别是当内容比较多的时候，会非常明显。会有几个后果：在ios下，会导致浏览器直接崩溃掉；在android下，会导致非常非常的卡。所以建议直接用js计算。</p>
+<p>3）将图片显示到一排上，不使用浮动，使用-webkit-transform:translate3d(0,0,0); position: absolute;</p>
+<p>4）new Date() <em> 1；//  </em> 1 ，进行数值运算，转换为数字形式的时间戳</p>
+<p>5）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">self.startX = evt.touches[<span class="number">0</span>].pageX;	<span class="comment">//记录开始的位移,touches包含着所有手指触摸在屏幕上的点的集合</span></div><div class="line">-webkit-backface-visibility:hidden;<span class="comment">/* 防止闪白 */</span></div></pre></td></tr></table></figure></p>
+<p>6）更多图片的优化，保留3个要使用的节点，当前的，上一个，下一个图片的节点，剩余的不需要的删除</p>
+<p>7）jQuery Mobile（JQM  jQMobile）<br>是jQuery在手机上和平板设备上的版本，是创建移动web app的框架。</p>
+<p>8）2048制作过程中遇到的bug：（见9（2）touch基础事件BUG）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 手机上手指识别无用，chrome19827号错误：touchevent不被触发。防止没有正确使用preventDefault()</span></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">	event.preventDefault();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>10）使用Dropbox发布自己的web app<br>免费<br><strong>限制：</strong> ① 静态网站  ② 速度较慢（在国外）  ③ 域名不宜记忆<br>11）web app、native app和hybrid app（混合模式）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mobile/" rel="tag">#mobile</a>
+          
+            <a href="/tags/webApp/" rel="tag">#webApp</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/20/BFC小结/" rel="next" title="BFC小结">
+                <i class="fa fa-chevron-left"></i> BFC小结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/15/Vue的学习小结/" rel="prev" title="Vue.js的学习小结">
+                Vue.js的学习小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/15/关于移动端开发的一些总结/"
+           data-title="关于移动端开发的一些总结" data-url="http://yoursite.com/2016/08/15/关于移动端开发的一些总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Silence" />
+          <p class="site-author-name" itemprop="name">Silence</p>
+          <p class="site-description motion-element" itemprop="description">Silence's blog | 前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、-piexl-像素知识"><span class="nav-number">1.</span> <span class="nav-text">1、    piexl 像素知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、-viewport"><span class="nav-number">2.</span> <span class="nav-text">2、    viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、-meta标签"><span class="nav-number">3.</span> <span class="nav-text">3、    meta标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、-设计移动web"><span class="nav-number">4.</span> <span class="nav-text">4、    设计移动web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案一：根据设备的实际宽度来设计（常用）（不缩放）"><span class="nav-number">4.0.1.</span> <span class="nav-text">方案一：根据设备的实际宽度来设计（常用）（不缩放）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案二：1px-1dp，易解决高清问题"><span class="nav-number">4.0.2.</span> <span class="nav-text">方案二：1px = 1dp，易解决高清问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#以方案一为例，将pc端页面改成适应移动端的页面："><span class="nav-number">4.0.2.1.</span> <span class="nav-text">以方案一为例，将pc端页面改成适应移动端的页面：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、-使用什么布局？"><span class="nav-number">5.</span> <span class="nav-text">5、    使用什么布局？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可以使用"><span class="nav-number">5.0.1.</span> <span class="nav-text">可以使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、-flexbox弹性盒子布局"><span class="nav-number">6.</span> <span class="nav-text">6、    flexbox弹性盒子布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#划分方式："><span class="nav-number">6.1.</span> <span class="nav-text">划分方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#①-等比划分（flex-num-表示）"><span class="nav-number">6.1.1.</span> <span class="nav-text">①    等比划分（flex:num;表示）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#②-混合划分（有固定的像素（eg：100px）与flex-num-混合在一起）"><span class="nav-number">6.1.2.</span> <span class="nav-text">②    混合划分（有固定的像素（eg：100px）与flex:num;混合在一起）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#③-不定宽高的水平垂直居中："><span class="nav-number">6.1.3.</span> <span class="nav-text">③    不定宽高的水平垂直居中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flexbox版不定宽高的水平垂直居中："><span class="nav-number">6.1.4.</span> <span class="nav-text">flexbox版不定宽高的水平垂直居中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flexbox弹性盒子布局，介于兼容性问题，建议使用旧版方案："><span class="nav-number">6.1.5.</span> <span class="nav-text">flexbox弹性盒子布局，介于兼容性问题，建议使用旧版方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一种垂直居中的hack："><span class="nav-number">6.1.5.1.</span> <span class="nav-text">一种垂直居中的hack：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、-响应式布局"><span class="nav-number">7.</span> <span class="nav-text">7、    响应式布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#媒体查询：-media-screen-and-max-width-100px"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">媒体查询：@media  screen  and  (max-width:100px) {  }</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#媒体类型：screen（屏幕）"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">媒体类型：screen（屏幕）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用媒体查询参数："><span class="nav-number">7.0.0.3.</span> <span class="nav-text">常用媒体查询参数：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式设计设计点"><span class="nav-number">7.1.</span> <span class="nav-text">响应式设计设计点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设计点一：百分比布局"><span class="nav-number">7.1.1.</span> <span class="nav-text">设计点一：百分比布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计点二：弹性图片"><span class="nav-number">7.1.2.</span> <span class="nav-text">设计点二：弹性图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计点三：重新布局，显示与隐藏"><span class="nav-number">7.1.3.</span> <span class="nav-text">设计点三：重新布局，显示与隐藏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于响应式设计的思考："><span class="nav-number">7.1.4.</span> <span class="nav-text">关于响应式设计的思考：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、-特殊样式处理"><span class="nav-number">8.</span> <span class="nav-text">8、    特殊样式处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）-高清图片"><span class="nav-number">8.0.1.</span> <span class="nav-text">（1）    高清图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）-一像素边框"><span class="nav-number">8.0.2.</span> <span class="nav-text">（2）    一像素边框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）-相对单位rem"><span class="nav-number">8.0.3.</span> <span class="nav-text">（3）    相对单位rem</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不使用rem的情况：font-size"><span class="nav-number">8.0.3.1.</span> <span class="nav-text">不使用rem的情况：font-size</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）-多行文本溢出•••"><span class="nav-number">8.0.4.</span> <span class="nav-text">（4）    多行文本溢出•••</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、-终端交互优化"><span class="nav-number">9.</span> <span class="nav-text">9、    终端交互优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对click事件say-no"><span class="nav-number">9.0.1.</span> <span class="nav-text">对click事件say  no</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弹性滚动"><span class="nav-number">9.0.2.</span> <span class="nav-text">弹性滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上拉刷新"><span class="nav-number">9.0.3.</span> <span class="nav-text">上拉刷新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tap事件基础"><span class="nav-number">9.0.4.</span> <span class="nav-text">tap事件基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#touch触摸事件"><span class="nav-number">9.0.5.</span> <span class="nav-text">touch触摸事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下拉加载"><span class="nav-number">9.0.6.</span> <span class="nav-text">下拉加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#300ms"><span class="nav-number">9.0.7.</span> <span class="nav-text">300ms:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-tap基础事件"><span class="nav-number">9.0.8.</span> <span class="nav-text">(1)    tap基础事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Touch基础事件"><span class="nav-number">9.0.9.</span> <span class="nav-text">(2)    Touch基础事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#但注意：event-preventDefault（）会导致默认行为不发生，如scroll，导致页面不滚动！如果页面带有滚动条，就需要考虑更换解决方案。"><span class="nav-number">9.0.9.1.</span> <span class="nav-text">但注意：event.preventDefault（）会导致默认行为不发生，如scroll，导致页面不滚动！如果页面带有滚动条，就需要考虑更换解决方案。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-弹性滚动，下拉刷新"><span class="nav-number">9.0.10.</span> <span class="nav-text">(3)    弹性滚动，下拉刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#但注意：android不支持原生的弹性滚动！但可以借助三方库iScroll来实现"><span class="nav-number">9.0.10.1.</span> <span class="nav-text">但注意：android不支持原生的弹性滚动！但可以借助三方库iScroll来实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Canvas-amp-GPU-render【GPU-渲染】"><span class="nav-number">9.0.11.</span> <span class="nav-text">(4)    Canvas & GPU render【GPU 渲染】</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#image-object："><span class="nav-number">9.0.11.1.</span> <span class="nav-text">image object：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-css3-animation"><span class="nav-number">9.0.12.</span> <span class="nav-text">(5)    css3  animation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、-跨终端web"><span class="nav-number">10.</span> <span class="nav-text">10、    跨终端web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）-移动优先："><span class="nav-number">10.0.1.</span> <span class="nav-text">（1）    移动优先：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）-多终端检测"><span class="nav-number">10.0.2.</span> <span class="nav-text">（2）    多终端检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）-接口：结构：通用接口，"><span class="nav-number">10.0.3.</span> <span class="nav-text">（3）    接口：结构：通用接口，</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11、零碎的细节"><span class="nav-number">11.</span> <span class="nav-text">11、零碎的细节</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"dssilence"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

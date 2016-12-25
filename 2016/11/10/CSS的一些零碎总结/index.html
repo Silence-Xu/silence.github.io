@@ -1,0 +1,722 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html/css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="关于css基础的一些总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS的一些零碎总结">
+<meta property="og:url" content="http://yoursite.com/2016/11/10/CSS的一些零碎总结/index.html">
+<meta property="og:site_name" content="Silence的个人博客">
+<meta property="og:description" content="关于css基础的一些总结">
+<meta property="og:updated_time" content="2016-11-10T04:41:13.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS的一些零碎总结">
+<meta name="twitter:description" content="关于css基础的一些总结">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/10/CSS的一些零碎总结/"/>
+
+
+  <title> CSS的一些零碎总结 | Silence的个人博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ce4d176f87596bac8929806f1f4f16d1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Silence的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">专注于前端</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS的一些零碎总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-10T10:15:04+08:00" content="2016-11-10">
+              2016-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html-css/" itemprop="url" rel="index">
+                    <span itemprop="name">html/css</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/10/CSS的一些零碎总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/10/CSS的一些零碎总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>1、CSS 伪元素用于向某些选择器设置特殊效果（用来当作一个东西的，跟一个元素差不多，但不是元素）。</strong></p>
+<p>① :frist-line伪元素：用于向文本首行设置特殊样式，但是只能用于块级元素。</p>
+<p><strong>以下属性可应用于 “ frist-line ” 伪元素：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font、color、background、word-spacing、letter-spacing、text-decoration、vertical-align、text-transform、line-height、clear 。</p>
+<p>② :first-letter伪元素：用于向文本首字母设置特殊样式，只能用于块级元素。</p>
+<p><strong>以下属性可应用于 “ first-letter ” 伪元素：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; font、color、background、margin、padding、border、text-decoration、vertical-align(仅当float为none时)、text-transform、line-height、float、clear 。</p>
+<p>③ 伪元素和css类可以配合使用：p.article: first-letter {  }，可以使所有 class 为 article 的段落的首字母样式改变 。</p>
+<p>④ 多重伪元素：可以结合多个伪元素来使用。p: first-letter {  }，p: first-line {  }：段落的第一个字母根据p: first-letter具体样式显示，第一行其余文本根据p: first-line具体样式显示，段落中其余文本以具体段落设置的其他样式显示。</p>
+<p>⑤ :before伪元素：可以在元素内容前面插入新内容 。</p>
+<p>⑥ :after伪元素：可以在元素的内容之后插入新内容 。</p>
+<p>⑦ 许多人喜欢给 blockquote  引用段添加巨大的引号作为背景，这种时候我们就可以用 :before 来代替 background 了，既可以给背景留下空间，还可以直接使用文字而非图片：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">blockquote</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">	<span class="attribute">content</span>: open-quote;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: -<span class="number">1</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#DDD</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">120px</span>;</div><div class="line">	<span class="attribute">font-family</span>: serif;</div><div class="line">	<span class="attribute">font-weight</span>: bolder;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>⑧ 清除浮动：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.clear-fix &#123; *overflow: hidden; *zoom: 1; &#125;</div><div class="line">.clear-fix:after &#123; display: table; content: ""; width: 0; clear: both; &#125;</div></pre></td></tr></table></figure>
+<p><br><br><br><strong>2、CSS 伪类用于向某些选择器添加特殊的效果（用来选择的）</strong></p>
+<p>① :active：向被激活的元素添加样式</p>
+<p>② :focus：向拥有键盘输入焦点的元素添加样式</p>
+<p>③ :hover：当鼠标悬浮在元素上方时，向元素添加样式</p>
+<p>④ :link：向未被访问的链接添加样式</p>
+<p>⑤ :visiter：向已被访问的链接添加样式</p>
+<p>⑥ :first-child：向元素的第一个子元素添加样式</p>
+<p>⑦ :lang：向带有指定lang属性的元素添加样式，使你有能力为不同的语言定义特殊的规则：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">q</span><span class="selector-pseudo">:lang(no)</span></div><div class="line">   &#123;</div><div class="line">   <span class="attribute">quotes</span>: <span class="string">"~"</span> <span class="string">"~"</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;文字&lt;q lang=&quot;no&quot;&gt;段落中的引用的文字&lt;/q&gt;文字&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p><br><br><br><strong>3、解决塌陷，清除浮动</strong></p>
+<p>① 添加空元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 经典的解决方法，就是在浮动元素下方添加一个非浮动元素。<br>代码这样写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;width:45%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:right;width:45%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原理是父容器现在必须考虑非浮动子元素的位置，而后者肯定出现在浮动元素下方，所以显示出来，父容器就把所有子元素都包括进去了。这种方法比较简单，但是要在页面中增加冗余标签，违背了语义网的原则。</p>
+<p>② 浮动的父容器</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 另一种思路是，索性将父容器也改成浮动定位，这样它就可以带着子元素一起浮动了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;width:45%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:right;width:45%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这种方法不用修改HTML代码，但是缺点在于父容器变成浮动以后，会影响到后面元素的定位，而且有时候，父容器是定位死的，无法变成浮动。<br>③ 浮动元素的自动clearing<br>让父容器变得可以自动”清理”（clearing）子元素的浮动，从而能够识别出浮动子元素的位置，不会出现显示上的差错。<br>要做到这点，只要为父容器加上一条”overflow: hidden”的CSS语句就行了。代码这样写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"overflow: hidden;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;width:45%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:right;width:45%;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这种方法的缺点主要有二个，一个是IE 6不支持，另一个是一旦子元素的大小超过父容器的大小，就会出显示问题。</p>
+<p>④ 通过CSS语句添加子元素呢，这样就不用修改HTML代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line"><span class="attribute">content</span>: <span class="string">"\0020"</span>;</div><div class="line"><span class="attribute">display</span>: block;</div><div class="line"><span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">clear</span>: both;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.clearfix</span> &#123;</div><div class="line"><span class="attribute">zoom</span>: <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; “clearfix”是父容器的class名称，”content:”020”;”是在父容器的结尾处放一个空白字符，”height: 0;”是让这个这个空白字符不显示出来，”display: block; clear: both;”是确保这个空白字符是非浮动的独立区块。添加一条IE 6的独有命令”zoom:1;”就行了，这条命令的作用是激活父元素的”hasLayout”属性，让父元素拥有自己的布局。IE 6会读取这条命令，其他浏览器则会直接忽略它。</p>
+<p><br><br><br><strong>4、什么情况下hidden不起作用</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position设置成fixed，overflow的hidden不起作用。</p>
+<p><br><br><br><strong>5、css盒子模型，问的是border、padding、margin三个属性如何作用在一个块级元素上？</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一个盒子的宽度  =  border + padding + width(content内容的宽度)。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我想给一个给一个盒子加一个宽度，然后再加一个padding，但是这个盒子原本的宽度不改变，也就是说，width的值没有改变，且不会因为加了padding而往外扩增，该如何做？<br>有两种方式：</p>
+<p>① 当一个块元素没有设置width时，这个盒子的宽度是默认填充父元素的宽度，这时随便给这个块元素加padding都是向内扩展的，不会向外扩展。</p>
+<p>② <code>border-sizing: content-box / border-box / inherit ;</code></p>
+<p>content-box：宽度和高度分别应用到元素的内容框，在宽度和高度之外绘制元素的内边距和边框。</p>
+<p>border-box：为元素设定的宽度和高度决定了元素的边框盒，就是说,用border的宽度来指代width，把加上border、padding之后的宽度，用width强行给限制住，然后宽度也就会变成向内扩展。</p>
+<p>inherit：规定应从父元素继承 box-sizing 属性的值。</p>
+<p><br><br><br><strong>6、关于字体的，说一下rem这个单位（移动端），（产生和设置）</strong></p>
+<p>em是相对于父元素的font-size，rem是相对于根元素的font-size。</p>
+<p>rem的补充：</p>
+<p>① 对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小；</p>
+<p>② IE9/IE10在用于伪元素时或者使用字体简写声明时不支持rem；</p>
+<p>③ IOS Safari5.0-5.1虽然支持rem，但是在使用媒体查询时不支持rem。</p>
+<p><br><br><br><strong>7、如何在css代码里提升代码的优先级？</strong><br><code>a { color:red;}</code> 用什么方法覆盖掉？  解决：</p>
+<p>① <code>body a { color:red;}</code><br>优先级计算公式：标签=1，id=100，class=10，加起来就是他的优先级。</p>
+<p>② 在color后面加一个!important，强行将优先级提升到最大。</p>
+<p>③ !important提升指定样式规则的应用优先权。</p>
+<p><strong>8、有两个CSS语句能起到隐藏节点的作用visibility和display</strong></p>
+<p>（1）visibility</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 规定了元素是否可见，即使不可见也会占用上面的空间，在这里就是在指它与display的不一样了。</p>
+<p>（2）display</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这个属性用于定义建立布局时元素生成的显示框类型。对于 HTML 等文档类型，如果使用 display 不谨慎会很危险，因为可能违反 HTML 中已经定义的显示层次结构。对于 XML，由于 XML 没有内置的这种层次结构，所有 display 是绝对必要的。</p>
+<p>（3）对比：</p>
+<p>相同点：都有相同的功能就是隐藏。</p>
+<p>不同点：当我们定义了display后，在渲染树中不会引擎是不会去构建这个框的。而visibility当我们使它隐藏的时候，他在渲染树中会构建，只是不去渲染。这也就是W3c上面所说的不可见会占空间的原因。他们两者在优化中visibility会显得更好，因为我们不会因为它而去改变了文档中已经定义好的显示层次结构了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html-css/" rel="tag">#html/css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/08/浅谈语义化/" rel="next" title="浅谈语义化">
+                <i class="fa fa-chevron-left"></i> 浅谈语义化
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/20/关于安装虚拟机/" rel="prev" title="关于安装虚拟机">
+                关于安装虚拟机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/10/CSS的一些零碎总结/"
+           data-title="CSS的一些零碎总结" data-url="http://yoursite.com/2016/11/10/CSS的一些零碎总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Silence" />
+          <p class="site-author-name" itemprop="name">Silence</p>
+          <p class="site-description motion-element" itemprop="description">Silence's blog | 前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"dssilence"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

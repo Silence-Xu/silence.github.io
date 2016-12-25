@@ -1,0 +1,678 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DNS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="当我们在浏览器输入一个url地址时，需要获取到这个url的域名，本篇文章主要介绍了关于DNS查找解析域名的过程的一些东西。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNS查找域名的过程">
+<meta property="og:url" content="http://yoursite.com/2016/10/29/DNS查找域名的过程/index.html">
+<meta property="og:site_name" content="Silence的个人博客">
+<meta property="og:description" content="当我们在浏览器输入一个url地址时，需要获取到这个url的域名，本篇文章主要介绍了关于DNS查找解析域名的过程的一些东西。">
+<meta property="og:updated_time" content="2016-11-06T11:46:53.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DNS查找域名的过程">
+<meta name="twitter:description" content="当我们在浏览器输入一个url地址时，需要获取到这个url的域名，本篇文章主要介绍了关于DNS查找解析域名的过程的一些东西。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/29/DNS查找域名的过程/"/>
+
+
+  <title> DNS查找域名的过程 | Silence的个人博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ce4d176f87596bac8929806f1f4f16d1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Silence的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">专注于前端</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DNS查找域名的过程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T07:33:25+08:00" content="2016-10-29">
+              2016-10-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/DNS/" itemprop="url" rel="index">
+                    <span itemprop="name">DNS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/29/DNS查找域名的过程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/DNS查找域名的过程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>当我们在浏览器输入一个url地址时，需要获取到这个url的域名，本篇文章主要介绍了关于DNS查找解析域名的过程的一些东西。</p>
+<h1 id="关于DNS"><a href="#关于DNS" class="headerlink" title="关于DNS"></a>关于DNS</h1><p>不清楚DNS的小伙伴可以点这里：<a href="http://www.cnblogs.com/xsilence/p/6034467.html" target="_blank" rel="external">关于域名系统DNS解析IP地址的一些总结</a></p>
+<h1 id="查找域名-amp-amp-域名解析"><a href="#查找域名-amp-amp-域名解析" class="headerlink" title="查找域名 &amp;&amp; 域名解析"></a>查找域名 &amp;&amp; 域名解析</h1><h2 id="DNS查找："><a href="#DNS查找：" class="headerlink" title="DNS查找："></a>DNS查找：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 浏览器查找域名的IP地址。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 浏览器DNS查找顺序一般是这样的：浏览器缓存→系统缓存→路由器缓存→ISP DNS 缓存→递归搜索。</p>
+<h3 id="详细过程如下："><a href="#详细过程如下：" class="headerlink" title="详细过程如下："></a>详细过程如下：</h3><h4 id="a-浏览器缓存，浏览器会缓存DNS记录一段时间。"><a href="#a-浏览器缓存，浏览器会缓存DNS记录一段时间。" class="headerlink" title="a. 浏览器缓存，浏览器会缓存DNS记录一段时间。"></a>a. 浏览器缓存，浏览器会缓存DNS记录一段时间。</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 操作系统没有设定浏览器存储DNS记录的时间长短，不同的浏览器会存储各自的一个固定时间，时长为2~30分钟不等。</p>
+<h4 id="b-系统缓存"><a href="#b-系统缓存" class="headerlink" title="b. 系统缓存"></a>b. 系统缓存</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果浏览器缓存里没有找到需要的记录，浏览器会做一个操作系统调用（windows里是gethostname），这样子，就可以获得系统缓存里的记录啦。</p>
+<h4 id="c-路由器缓存"><a href="#c-路由器缓存" class="headerlink" title="c. 路由器缓存"></a>c. 路由器缓存</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接下来，如果还是没有找到需要的缓存，将前面的查询请求发给路由器，它一般会有自己的DNS缓存。</p>
+<h4 id="d-如果还是没有，那么就去检查ISP有没有吧"><a href="#d-如果还是没有，那么就去检查ISP有没有吧" class="headerlink" title="d. 如果还是没有，那么就去检查ISP有没有吧~"></a>d. 如果还是没有，那么就去检查ISP有没有吧~</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 每一个ISP（网络服务提供商），或一个大学，甚至是一个大学里的系都会有一个自己的本地域名服务器，他会在url第一次访问时缓存该域名的指向。下次再访问时，他会从缓存里把这个url曾经指向的IP调出来。</p>
+<h4 id="e-递归搜索"><a href="#e-递归搜索" class="headerlink" title="e. 递归搜索"></a>e. 递归搜索</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 还是没有需要的缓存~ 就只能放大招啦~<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 你的ISP的DNS服务器会从根域名开始进行递归查询。</p>
+<h5 id="递归查询："><a href="#递归查询：" class="headerlink" title="递归查询："></a><strong>递归查询</strong>：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 主机向本地域名服务器的查询一般都是采用<strong>递归查询</strong>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果主机所询问的本地域名服务器不知道被查询的域名的IP地址，那么本地域名服务器就以DNS客户的身份，向其根域名服务器继续发出查询请求报文(即替主机继续查询)，而不是让主机自己进行下一步查询。因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是返回一个失败的响应，表示无法查询到所需的IP地址。</p>
+<h5 id="迭代查询："><a href="#迭代查询：" class="headerlink" title="迭代查询："></a><strong>迭代查询</strong>：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本地域名服务器向根域名服务器的查询通常是采用<strong>迭代查询</strong>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当根域名服务器收到本地域名服务器发出的迭代查询请求报文时，要么返回给本地域名服务器所要查询的IP地址，要么返回给本地域名服务器下一步应当查询的域名服务器的IP地址。</p>
+<h5 id="举个栗子：假设的主机想知道另一个主机（域名为-my-xxsilence-net-的IP地址。具体步骤如下："><a href="#举个栗子：假设的主机想知道另一个主机（域名为-my-xxsilence-net-的IP地址。具体步骤如下：" class="headerlink" title="举个栗子：假设的主机想知道另一个主机（域名为 my.xxsilence.net)的IP地址。具体步骤如下："></a>举个栗子：假设的主机想知道另一个主机（域名为 my.xxsilence.net)的IP地址。具体步骤如下：</h5><p>① 主机先向其本地域名服务器进行<strong>递归查询</strong>，如果缓存中没有，继续下一步。</p>
+<p>② 本地域名服务器采用<strong>迭代查询</strong>，先向一个根域名服务器查询。</p>
+<p>③ 根域名服务器告诉本地域名服务器，下一次查询的顶级域名服务器 dns.net。</p>
+<p>④ 本地域名服务器向顶级域名服务器 dns.net。</p>
+<p>⑤ 顶级域名服务器 dns.net，下一次应查询的权限域名服务器dns.xxsilence.net的IP地址。</p>
+<p>⑥ 本地域名服务器向权限域名服务器dns.xxsilence.net进行查询。</p>
+<p>⑦ 权限域名服务器dns.xxsilence.net告诉本地域名服务器，所查询的主机的IP地址。</p>
+<p>⑧ 本地域名服务器最后把查询结果告诉主机。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DNS/" rel="tag">#DNS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/27/浏览器对于常见HTTP状态码的反应/" rel="next" title="浏览器对于常见HTTP状态码的反应">
+                <i class="fa fa-chevron-left"></i> 浏览器对于常见HTTP状态码的反应
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/29/关于域名系统DNS解析IP地址的一些总结/" rel="prev" title="关于域名系统DNS解析IP地址的一些总结">
+                关于域名系统DNS解析IP地址的一些总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/29/DNS查找域名的过程/"
+           data-title="DNS查找域名的过程" data-url="http://yoursite.com/2016/10/29/DNS查找域名的过程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Silence" />
+          <p class="site-author-name" itemprop="name">Silence</p>
+          <p class="site-description motion-element" itemprop="description">Silence's blog | 前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于DNS"><span class="nav-number">1.</span> <span class="nav-text">关于DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找域名-amp-amp-域名解析"><span class="nav-number">2.</span> <span class="nav-text">查找域名 && 域名解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS查找："><span class="nav-number">2.1.</span> <span class="nav-text">DNS查找：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#详细过程如下："><span class="nav-number">2.1.1.</span> <span class="nav-text">详细过程如下：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-浏览器缓存，浏览器会缓存DNS记录一段时间。"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">a. 浏览器缓存，浏览器会缓存DNS记录一段时间。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-系统缓存"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">b. 系统缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-路由器缓存"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">c. 路由器缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-如果还是没有，那么就去检查ISP有没有吧"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">d. 如果还是没有，那么就去检查ISP有没有吧~</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-递归搜索"><span class="nav-number">2.1.1.5.</span> <span class="nav-text">e. 递归搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#递归查询："><span class="nav-number">2.1.1.5.1.</span> <span class="nav-text">递归查询：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#迭代查询："><span class="nav-number">2.1.1.5.2.</span> <span class="nav-text">迭代查询：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举个栗子：假设的主机想知道另一个主机（域名为-my-xxsilence-net-的IP地址。具体步骤如下："><span class="nav-number">2.1.1.5.3.</span> <span class="nav-text">举个栗子：假设的主机想知道另一个主机（域名为 my.xxsilence.net)的IP地址。具体步骤如下：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"dssilence"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
